@@ -117,8 +117,7 @@ export default function ReviewForm({ navigation }) {
         onPress={() => AddProduct()}
         disabled={image1 === "" ? true : false}
       >
-        <Text style={styles.findPosts}>product opslaan
-</Text>
+        <Text style={styles.findPosts}>product opslaan</Text>
       </TouchableOpacity>
     </View>
   );

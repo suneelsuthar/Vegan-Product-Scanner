@@ -5,14 +5,14 @@ import { getStorage } from "firebase/storage";
 
 // add firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyBVZza4G1hf7FD0z--PvyQ2R9SMswzaRPc",
-  authDomain: "veganproducts-64762.firebaseapp.com",
-  databaseURL: "https://veganproducts-64762-default-rtdb.firebaseio.com",
-  projectId: "veganproducts-64762",
-  storageBucket: "veganproducts-64762.appspot.com",
-  messagingSenderId: "661901715662",
-  appId: "1:661901715662:web:475eaa10908e0f7509889f",
-  measurementId: "G-7PN0752W42",
+  apiKey: "AIzaSyCVbMGXVykkHlfWV2_W_-eP4DkwcA5rR-w",
+  authDomain: "vagantrackerapp.firebaseapp.com",
+  databaseURL: "https://vagantrackerapp-default-rtdb.firebaseio.com",
+  projectId: "vagantrackerapp",
+  storageBucket: "vagantrackerapp.appspot.com",
+  messagingSenderId: "173257995549",
+  appId: "1:173257995549:web:3e8cdc32adac2decb3ddf4",
+  measurementId: "G-SXPT1T32FN",
 };
 
 // initialize firebase

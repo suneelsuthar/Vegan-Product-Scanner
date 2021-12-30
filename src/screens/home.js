@@ -18,14 +18,15 @@ import Feather from "react-native-vector-icons/Feather";
 import { Menu, Divider, Provider } from "react-native-paper";
 import { Entypo } from "@expo/vector-icons";
 import { getAuth, signOut } from "firebase/auth";
-import { ref, onChildAdded } from "firebase/database";
+import { ref, onChildAdded, remove } from "firebase/database";
 import { db } from "./../config";
 import { auth } from "../config";
 const Home = ({ navigation }) => {
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = React.useState(false);
   const [role, setrole] = React.useState(
-    auth.currentUser !== null && auth.currentUser.email === "admin@gmail.com"
+    auth.currentUser !== null &&
+      auth.currentUser.email === "laurensvmidden@gmail.com"
       ? "admin"
       : "user"
   );
@@ -36,7 +37,8 @@ const Home = ({ navigation }) => {
     const productsref = ref(db, "prducts/");
     const arr = [];
     onChildAdded(productsref, (snapshot) => {
-      const data = snapshot.val();
+      var data = snapshot.val();
+      data.id = snapshot.key;
       arr.push(data);
       setproducts(arr);
       setLoading(false);
@@ -78,6 +80,12 @@ const Home = ({ navigation }) => {
       return products;
     }
   });
+
+  const deleteProduct = async (id) => {
+    const productsref = ref(db, "prducts/" + id);
+    remove(productsref);
+    getProducts();
+  };
   return (
     <Provider>
       <SafeAreaView style={globalStyles.container}>
@@ -217,7 +225,11 @@ const Home = ({ navigation }) => {
             data={filteredData}
             keyExtractor={(item) => "ab" + Math.random().toString()}
             renderItem={({ item }) => (
-              <ProductListCard data={item} navigation={navigation} />
+              <ProductListCard
+                data={item}
+                navigation={navigation}
+                onPress={deleteProduct}
+              />
             )}
           />
         </View>

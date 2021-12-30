@@ -20,6 +20,11 @@ function Navigation() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="Home"
           component={Home}
           options={{ headerShown: false }}
@@ -34,11 +39,7 @@ function Navigation() {
             },
           }}
         />
-        <Stack.Screen
-          name="Login"
-          component={Login}
-          options={{ headerShown: false }}
-        />
+
         <Stack.Screen
           name="Signup"
           component={Signup}

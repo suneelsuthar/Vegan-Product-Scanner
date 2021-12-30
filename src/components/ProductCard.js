@@ -1,8 +1,19 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
-const ProductListCard = ({ data, navigation }) => {
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { auth } from "../config";
+const ProductListCard = ({ data, navigation,onPress }) => {
+
   return (
     <View style={styles._card}>
+      {auth.currentUser && auth.currentUser.email === "laurensvmidden@gmail.com" ? 
+        <TouchableOpacity style={styles._delete_btn} onPress={() => onPress(data.id)}>
+          <MaterialCommunityIcons
+            name="delete-circle-outline"
+            size={24}
+            color="#c34c43"
+          />
+        </TouchableOpacity>:null}
       <View style={styles._card_header}>
         <TouchableOpacity>
           <Image
@@ -115,5 +126,10 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     width: 130,
     fontFamily: "Poppins-Regular",
+  },
+  _delete_btn: {
+    position: "absolute",
+    right: 10,
+    top: 10,
   },
 });

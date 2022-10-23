@@ -6,7 +6,8 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 const storage = getStorage();
 
 export default function UploadPic(props) {
-  const [image1, setImage1] = useState("");
+  console.log("<<<<<<<<props>>>>>>>>", props.url);
+  const [image1, setImage1] = useState(props.url ? props.url : "");
 
   async function imageHandleChange(handleChange) {
     setImage1("");

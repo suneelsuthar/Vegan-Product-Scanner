@@ -2,18 +2,37 @@ import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { auth } from "../config";
-const ProductListCard = ({ data, navigation,onPress }) => {
-
+const ProductListCard = ({ data, navigation, onPress }) => {
   return (
     <View style={styles._card}>
-      {auth.currentUser && auth.currentUser.email === "laurensvmidden@gmail.com" ? 
-        <TouchableOpacity style={styles._delete_btn} onPress={() => onPress(data.id)}>
+      {auth.currentUser &&
+      auth.currentUser.email === "laurensvmidden@gmail.com" ? (
+        <TouchableOpacity
+          style={styles._delete_btn}
+          onPress={() => onPress(data.id)}
+        >
           <MaterialCommunityIcons
             name="delete-circle-outline"
             size={24}
             color="#c34c43"
           />
-        </TouchableOpacity>:null}
+        </TouchableOpacity>
+      ) : null}
+
+      {auth.currentUser &&
+      auth.currentUser.email === "laurensvmidden@gmail.com" ? (
+        <TouchableOpacity
+          style={[styles._delete_btn, { top: 40 }]}
+          onPress={() => navigation.navigate("EditProduct", { data: data })}
+        >
+          <MaterialCommunityIcons
+            name="circle-edit-outline"
+            size={24}
+            color="black"
+          />
+        </TouchableOpacity>
+      ) : null}
+
       <View style={styles._card_header}>
         <TouchableOpacity>
           <Image

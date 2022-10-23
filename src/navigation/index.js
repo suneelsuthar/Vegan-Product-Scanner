@@ -9,10 +9,10 @@ import Profile from "../screens/profile";
 import Login from "../screens/Login";
 import Signup from "../screens/signup";
 import AddProduct from "../screens/AddProduct";
-import ScanProduct from "../screens/ScanProduct";
 import { AntDesign } from "@expo/vector-icons";
 import ProductDetail from "./../screens/ProductDetail";
-
+import EditProduct from "./../screens/EditProduct";
+import { FontAwesome } from "@expo/vector-icons";
 const Stack = createNativeStackNavigator();
 
 function Navigation() {
@@ -29,6 +29,8 @@ function Navigation() {
           component={Home}
           options={{ headerShown: false }}
         />
+
+        {/* EditProduct */}
         <Stack.Screen
           name="ProductDetail"
           component={ProductDetail}
@@ -44,21 +46,6 @@ function Navigation() {
           name="Signup"
           component={Signup}
           options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="ScanProduct"
-          component={ScanProduct}
-          options={{
-            headerRight: () => (
-              <View>
-                <AntDesign name="scan1" size={24} color="black" />
-              </View>
-            ),
-            title: "Scanproduct",
-            headerTitleStyle: {
-              fontFamily: "Poppins-Medium",
-            },
-          }}
         />
 
         <Stack.Screen
@@ -76,6 +63,22 @@ function Navigation() {
               </View>
             ),
             title: "Producten toevoegen",
+            headerTitleStyle: {
+              fontFamily: "Poppins-Medium",
+            },
+          }}
+        />
+
+        <Stack.Screen
+          name="EditProduct"
+          component={EditProduct}
+          options={{
+            headerRight: () => (
+              <View>
+                <FontAwesome name="edit" size={24} color="black" />
+              </View>
+            ),
+            title: "product updaten",
             headerTitleStyle: {
               fontFamily: "Poppins-Medium",
             },

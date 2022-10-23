@@ -137,7 +137,7 @@ const Home = ({ navigation }) => {
                 </TouchableOpacity>
               }
             >
-              <Menu.Item
+              {/* <Menu.Item
                 onPress={() => {
                   setVisible(false);
                   navigation.navigate("ScanProduct");
@@ -148,7 +148,7 @@ const Home = ({ navigation }) => {
                     <Text style={styles._menue_text}>product scannen</Text>
                   </View>
                 }
-              />
+              /> */}
               <Divider />
               <Menu.Item
                 onPress={() => {
@@ -229,6 +229,7 @@ const Home = ({ navigation }) => {
                 data={item}
                 navigation={navigation}
                 onPress={deleteProduct}
+              
               />
             )}
           />
